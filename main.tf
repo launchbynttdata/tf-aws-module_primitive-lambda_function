@@ -90,5 +90,6 @@ module "lambda_function" {
   lambda_at_edge                  = var.lambda_at_edge
   lambda_at_edge_logs_all_regions = var.lambda_at_edge_logs_all_regions
 
-  tags = local.tags
+  tags   = local.tags
+  create = var.create
 }
