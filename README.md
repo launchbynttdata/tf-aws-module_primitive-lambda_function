@@ -119,7 +119,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_lambda_function"></a> [lambda\_function](#module\_lambda\_function) | terraform-aws-modules/lambda/aws | ~> 7.2 |
+| <a name="module_lambda_function"></a> [lambda\_function](#module\_lambda\_function) | terraform-aws-modules/lambda/aws | ~> 7.4 |
 
 ## Resources
 
@@ -150,7 +150,7 @@ No resources.
 | <a name="input_hash_extra"></a> [hash\_extra](#input\_hash\_extra) | The string to add into hashing function. Useful when building same source path for different functions. | `string` | `""` | no |
 | <a name="input_ignore_source_code_hash"></a> [ignore\_source\_code\_hash](#input\_ignore\_source\_code\_hash) | Whether to ignore changes to the function's source code hash. Set to true if you manage infrastructure and code deployments separately. | `bool` | `false` | no |
 | <a name="input_authorization_type"></a> [authorization\_type](#input\_authorization\_type) | The type of authentication that the Lambda Function URL uses. Set to `AWS_IAM` to restrict access to authenticated IAM users only. Set to `NONE` to bypass IAM authentication and create a public endpoint (default). | `string` | `"NONE"` | no |
-| <a name="input_cors"></a> [cors](#input\_cors) | CORS settings to be used by the Lambda Function URL | `any` | `{}` | no |
+| <a name="input_cors"></a> [cors](#input\_cors) | CORS settings to be used by the Lambda Function URL | <pre>object({<br>    allow_credentials = optional(bool, false)<br>    allow_headers     = optional(list(string), null)<br>    allow_methods     = optional(list(string), null)<br>    allow_origins     = optional(list(string), null)<br>    expose_headers    = optional(list(string), null)<br>    max_age           = optional(number, 0)<br>  })</pre> | `{}` | no |
 | <a name="input_create_lambda_function_url"></a> [create\_lambda\_function\_url](#input\_create\_lambda\_function\_url) | Whether the Lambda Function URL resource should be created (default true). | `bool` | `true` | no |
 | <a name="input_invoke_mode"></a> [invoke\_mode](#input\_invoke\_mode) | Invoke mode of the Lambda Function URL. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. | `string` | `"BUFFERED"` | no |
 | <a name="input_attach_policy_statements"></a> [attach\_policy\_statements](#input\_attach\_policy\_statements) | Controls whether `policy_statements` should be added to IAM role for Lambda Function | `bool` | `false` | no |
@@ -184,6 +184,7 @@ No resources.
 | <a name="input_lambda_at_edge"></a> [lambda\_at\_edge](#input\_lambda\_at\_edge) | Set this to true if using Lambda@Edge, to enable publishing, limit the timeout, and allow edgelambda.amazonaws.com to invoke the function | `bool` | `false` | no |
 | <a name="input_lambda_at_edge_logs_all_regions"></a> [lambda\_at\_edge\_logs\_all\_regions](#input\_lambda\_at\_edge\_logs\_all\_regions) | Whether to specify a wildcard in IAM policy used by Lambda@Edge to allow logging in all regions | `bool` | `true` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to apply to this resource. | `map(string)` | `{}` | no |
+| <a name="input_create"></a> [create](#input\_create) | Controls whether resources should be created. | `bool` | `false` | no |
 
 ## Outputs
 
