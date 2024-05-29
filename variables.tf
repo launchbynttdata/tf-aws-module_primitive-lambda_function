@@ -392,3 +392,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "create" {
+  description = " Controls whether resources should be created."
+  type        = bool
+  default     = false
+}

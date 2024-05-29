@@ -12,7 +12,7 @@
 
 module "lambda_function" {
   source  = "terraform-aws-modules/lambda/aws"
-  version = "~> 7.2"
+  version = "~> 7.4"
 
   function_name           = var.name
   description             = var.description
@@ -90,5 +90,6 @@ module "lambda_function" {
   lambda_at_edge                  = var.lambda_at_edge
   lambda_at_edge_logs_all_regions = var.lambda_at_edge_logs_all_regions
 
-  tags = local.tags
+  tags   = local.tags
+  create = var.create
 }
