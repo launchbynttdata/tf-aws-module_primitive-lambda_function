@@ -18,8 +18,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_lambda_function"></a> [lambda\_function](#module\_lambda\_function) | d2lqlh14iel5k2.cloudfront.net/module_primitive/lambda_function/aws | ~> 1.0 |
-| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | d2lqlh14iel5k2.cloudfront.net/module_library/resource_name/launch | ~> 1.0 |
+| <a name="module_lambda_function"></a> [lambda\_function](#module\_lambda\_function) | terraform.registry.launch.nttdata.com/module_primitive/lambda_function/aws | ~> 1.0 |
+| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 1.0 |
 
 ## Resources
 
