@@ -7,8 +7,8 @@ Demonstrates creating a Lambda Function from a zip file.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <= 1.5.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.14 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.5 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.14 |
 
 ## Providers
 
@@ -19,7 +19,7 @@ No providers.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_lambda_function"></a> [lambda\_function](#module\_lambda\_function) | terraform.registry.launch.nttdata.com/module_primitive/lambda_function/aws | ~> 1.0 |
-| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 1.0 |
+| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 2.0 |
 
 ## Resources
 
