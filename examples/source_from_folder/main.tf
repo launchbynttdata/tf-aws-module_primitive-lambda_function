@@ -11,11 +11,13 @@
 // limitations under the License.
 
 module "lambda_function" {
-  source  = "terraform.registry.launch.nttdata.com/module_primitive/lambda_function/aws"
-  version = "~> 1.0"
+  source = "../.."
 
   name    = module.resource_names["lambda_function"].minimal_random_suffix
   handler = var.handler
+
+  create = true
+  cors   = { allow_origins = ["*"] }
 
   create_package = var.create_package
   source_path    = var.source_path
@@ -23,7 +25,7 @@ module "lambda_function" {
 
 module "resource_names" {
   source  = "terraform.registry.launch.nttdata.com/module_library/resource_name/launch"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   for_each = var.resource_names_map
 
