@@ -42,7 +42,10 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 			t.Errorf("Failure during HTTP GET: %v", err)
 		}
 
-		defer resp.Body.Close()
+		defer func() {
+			err := resp.Body.Close()
+			require.NoError(t, err)
+		}()
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			t.Errorf("Failure reading Body: %v", err)
@@ -59,7 +62,10 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 			t.Errorf("Failure during HTTP GET: %v", err)
 		}
 
-		defer resp.Body.Close()
+		defer func() {
+			err := resp.Body.Close()
+			require.NoError(t, err)
+		}()
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			t.Errorf("Failure reading Body: %v", err)
