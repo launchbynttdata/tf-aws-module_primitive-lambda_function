@@ -1,4 +1,4 @@
-# tf-aws-module_collection-lambda_function
+# tf-aws-module_primitive-lambda_function
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
@@ -103,7 +103,7 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -133,7 +133,7 @@ No resources.
 | <a name="input_description"></a> [description](#input\_description) | Description of your Lambda Function | `string` | `""` | no |
 | <a name="input_handler"></a> [handler](#input\_handler) | Lambda Function entrypoint in your code | `string` | `"index.lambda_handler"` | no |
 | <a name="input_runtime"></a> [runtime](#input\_runtime) | Lambda Function runtime | `string` | `"python3.9"` | no |
-| <a name="input_architectures"></a> [architectures](#input\_architectures) | (Optional) Instruction set architecture for your Lambda function. Valid architectures are x86\_64 (default) and arm64. | `list(string)` | <pre>[<br>  "x86_64"<br>]</pre> | no |
+| <a name="input_architectures"></a> [architectures](#input\_architectures) | (Optional) Instruction set architecture for your Lambda function. Valid architectures are x86\_64 (default) and arm64. | `list(string)` | <pre>[<br/>  "x86_64"<br/>]</pre> | no |
 | <a name="input_publish"></a> [publish](#input\_publish) | Whether to publish creation/change as new Lambda Function Version. | `bool` | `true` | no |
 | <a name="input_ephemeral_storage_size"></a> [ephemeral\_storage\_size](#input\_ephemeral\_storage\_size) | mount of ephemeral storage (/tmp) in MB your Lambda Function can use at runtime. Valid values are between 512 MB to 10,240 MB (10 GB). | `number` | `512` | no |
 | <a name="input_environment_variables"></a> [environment\_variables](#input\_environment\_variables) | A map that defines environment variables for the Lambda Function. | `map(string)` | `{}` | no |
@@ -150,11 +150,11 @@ No resources.
 | <a name="input_hash_extra"></a> [hash\_extra](#input\_hash\_extra) | The string to add into hashing function. Useful when building same source path for different functions. | `string` | `""` | no |
 | <a name="input_ignore_source_code_hash"></a> [ignore\_source\_code\_hash](#input\_ignore\_source\_code\_hash) | Whether to ignore changes to the function's source code hash. Set to true if you manage infrastructure and code deployments separately. | `bool` | `false` | no |
 | <a name="input_authorization_type"></a> [authorization\_type](#input\_authorization\_type) | The type of authentication that the Lambda Function URL uses. Set to `AWS_IAM` to restrict access to authenticated IAM users only. Set to `NONE` to bypass IAM authentication and create a public endpoint (default). | `string` | `"NONE"` | no |
-| <a name="input_cors"></a> [cors](#input\_cors) | CORS settings to be used by the Lambda Function URL | <pre>object({<br>    allow_credentials = optional(bool, false)<br>    allow_headers     = optional(list(string), null)<br>    allow_methods     = optional(list(string), null)<br>    allow_origins     = optional(list(string), null)<br>    expose_headers    = optional(list(string), null)<br>    max_age           = optional(number, 0)<br>  })</pre> | `{}` | no |
+| <a name="input_cors"></a> [cors](#input\_cors) | CORS settings to be used by the Lambda Function URL | <pre>object({<br/>    allow_credentials = optional(bool, false)<br/>    allow_headers     = optional(list(string), null)<br/>    allow_methods     = optional(list(string), null)<br/>    allow_origins     = optional(list(string), null)<br/>    expose_headers    = optional(list(string), null)<br/>    max_age           = optional(number, 0)<br/>  })</pre> | `{}` | no |
 | <a name="input_create_lambda_function_url"></a> [create\_lambda\_function\_url](#input\_create\_lambda\_function\_url) | Whether the Lambda Function URL resource should be created (default true). | `bool` | `true` | no |
 | <a name="input_invoke_mode"></a> [invoke\_mode](#input\_invoke\_mode) | Invoke mode of the Lambda Function URL. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. | `string` | `"BUFFERED"` | no |
 | <a name="input_attach_policy_statements"></a> [attach\_policy\_statements](#input\_attach\_policy\_statements) | Controls whether `policy_statements` should be added to IAM role for Lambda Function | `bool` | `false` | no |
-| <a name="input_policy_statements"></a> [policy\_statements](#input\_policy\_statements) | Map of dynamic policy statements to attach to Lambda Function role | `map(string)` | `{}` | no |
+| <a name="input_policy_statements"></a> [policy\_statements](#input\_policy\_statements) | Map of dynamic policy statements to attach to Lambda Function role | `any` | `{}` | no |
 | <a name="input_attach_policy"></a> [attach\_policy](#input\_attach\_policy) | Controls whether `policy` should be added to IAM role for Lambda Function | `bool` | `false` | no |
 | <a name="input_policy"></a> [policy](#input\_policy) | Policy statement ARN to attach to Lambda Function role | `string` | `null` | no |
 | <a name="input_attach_policies"></a> [attach\_policies](#input\_attach\_policies) | Controls whether `policies` should be added to IAM role for Lambda Function | `bool` | `false` | no |
@@ -197,4 +197,4 @@ No resources.
 | <a name="output_lambda_function_url"></a> [lambda\_function\_url](#output\_lambda\_function\_url) | n/a |
 | <a name="output_lambda_role_arn"></a> [lambda\_role\_arn](#output\_lambda\_role\_arn) | n/a |
 | <a name="output_lambda_role_name"></a> [lambda\_role\_name](#output\_lambda\_role\_name) | n/a |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->

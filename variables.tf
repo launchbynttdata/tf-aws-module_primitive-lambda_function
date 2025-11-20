@@ -194,7 +194,7 @@ variable "attach_policy_statements" {
 
 variable "policy_statements" {
   description = "Map of dynamic policy statements to attach to Lambda Function role"
-  type        = map(string)
+  type        = any
   default     = {}
 }
 
