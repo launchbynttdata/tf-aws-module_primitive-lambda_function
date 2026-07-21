@@ -25,18 +25,13 @@ const (
 	infraTFVarFileNameDefault        = "test.tfvars"
 )
 
-func TestLambdaLayerModule(t *testing.T) {
+func TestLambdaFunctionModuleReadOnly(t *testing.T) {
 
 	ctx := types.CreateTestContextBuilder().
 		SetTestConfig(&testimpl.ThisTFModuleConfig{}).
 		SetTestConfigFolderName(testConfigsExamplesFolderDefault).
 		SetTestConfigFileName(infraTFVarFileNameDefault).
-		SetTestSpecificFlags(map[string]types.TestFlags{
-			"source_from_folder": {
-				"IS_TERRAFORM_IDEMPOTENT_APPLY": false,
-			},
-		}).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableComplete)
+	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableCompleteReadOnly)
 }

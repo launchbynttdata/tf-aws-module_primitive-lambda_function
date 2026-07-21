@@ -15,12 +15,11 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestComposableComplete(t *testing.T, ctx types.TestContext) {
+func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
 	lambdaClient := GetAWSLambdaClient(t)
 
 	functionArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "lambda_function_arn")
 	functionName := terraform.Output(t, ctx.TerratestTerraformOptions(), "lambda_function_name")
-	functionUrl := terraform.Output(t, ctx.TerratestTerraformOptions(), "lambda_function_url")
 
 	t.Run("TestLambdaFunctionExists", func(t *testing.T) {
 		function, err := lambdaClient.GetFunction(context.TODO(), &lambda.GetFunctionInput{
@@ -33,6 +32,12 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 		assert.Equal(t, *function.Configuration.FunctionArn, functionArn, "Expected ARN did not match actual ARN!")
 		assert.Equal(t, *function.Configuration.FunctionName, functionName, "Expected Name did not match actual Name!")
 	})
+}
+
+func TestComposableComplete(t *testing.T, ctx types.TestContext) {
+	TestComposableCompleteReadOnly(t, ctx)
+
+	functionUrl := terraform.Output(t, ctx.TerratestTerraformOptions(), "lambda_function_url")
 
 	t.Run("InvokeExampleSourceFromFolder", func(t *testing.T) {
 		ctx.EnabledOnlyForTests(t, "source_from_folder")
