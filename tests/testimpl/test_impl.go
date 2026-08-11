@@ -18,8 +18,8 @@ import (
 func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
 	lambdaClient := GetAWSLambdaClient(t)
 
-	functionArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "lambda_function_arn")
-	functionName := terraform.Output(t, ctx.TerratestTerraformOptions(), "lambda_function_name")
+	functionArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "lambda_function_arn")
+	functionName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "lambda_function_name")
 
 	t.Run("TestLambdaFunctionExists", func(t *testing.T) {
 		function, err := lambdaClient.GetFunction(context.TODO(), &lambda.GetFunctionInput{
@@ -37,7 +37,7 @@ func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
 func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	TestComposableCompleteReadOnly(t, ctx)
 
-	functionUrl := terraform.Output(t, ctx.TerratestTerraformOptions(), "lambda_function_url")
+	functionUrl := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "lambda_function_url")
 
 	t.Run("InvokeExampleSourceFromFolder", func(t *testing.T) {
 		ctx.EnabledOnlyForTests(t, "source_from_folder")
